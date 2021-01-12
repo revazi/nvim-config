@@ -9,7 +9,7 @@ Start vim and run `PlugInstall`
 Install fonts under `fonts`
 
 #### Configure NeoVIM with VIM
-Add `init.vim` under `~/.config/vim` with this inside
+Add `init.vim` under `~/.config/nvim` with the content
 ```
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
