@@ -502,12 +502,12 @@ noremap <leader>r : RangerWorkingDirectory<CR>
 nnoremap <silent> <Leader>d :BD<cr>
 
 " derived from shell commands (Ctrl-b is back a char in command line)
-nnoremap <silent> <Leader>p :call PrevBufferOrQuickfix()<CR>
-nnoremap <silent> <Leader>n :call NextBufferOrQuickfix()<CR>
-
-nnoremap <silent> <Leader>c :BB<CR>
-nnoremap <silent> <Leader><BS> :BB<CR>
-nnoremap <silent> <Leader><Del> :BB<CR>
+" nnoremap <silent> <Leader>p :call PrevBufferOrQuickfix()<CR>
+" nnoremap <silent> <Leader>n :call NextBufferOrQuickfix()<CR>
+"
+" nnoremap <silent> <Leader>c :BB<CR>
+" nnoremap <silent> <Leader><BS> :BB<CR>
+" nnoremap <silent> <Leader><Del> :BB<CR>
 
 
 " Netrw traversal
@@ -543,6 +543,8 @@ nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
 " use ;; for escape
 " http://vim.wikia.com/wiki/Avoid_the_escape_key
 inoremap ,, <Esc>
+
+
 
 " Toggle NERDTree
 " Can't get <C-Space> by itself to work, so this works as Ctrl - space - space
