@@ -191,7 +191,8 @@ au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 nnoremap <silent> <leader>tt :terminal<CR>
 nnoremap <silent> <leader>tv :vnew<CR>:terminal<CR>
 nnoremap <silent> <leader>th :new<CR>:terminal<CR>
-tnoremap <C-x> <C-\><C-n><C-w>q
+tnoremap <C-x><C-x> <C-\><C-n><C-w>q
+tnoremap <C-x> <C-\><C-n>
 
 " ctrlp.vim
 let g:ctrlp_map = '<c-p>'
@@ -207,3 +208,14 @@ nmap <space> :<C-u>FZFR<CR>
 
 nnoremap <silent> <C-F> :<C-u>FZFAg<cr>
 nnoremap <silent> <C-f> :<C-u>FZFAgRoot<cr>
+
+
+" Traversal
+" tnoremap <C-h> <C-\><C-n><C-w>h
+" tnoremap <C-j> <C-\><C-n><C-w>j
+" tnoremap <C-k> <C-\><C-n><C-w>k
+" tnoremap <C-l> <C-\><C-n><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
