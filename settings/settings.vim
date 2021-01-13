@@ -69,27 +69,14 @@ endif
 
 " These are the basic settings to get the font to work (required):
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\:h12
-" required if using https://github.com/bling/vim-airline
-let g:airline_powerline_fonts=1
-"
 
-if has('cmdline_info')
-    set ruler                   " Show the ruler
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-    set showcmd                 " Show partial commands in status line and
-                                " Selected characters/lines in visual mode
-endif
 
-if has('statusline')
-  " See also: autoload/settings.vim 802 version settings
-
-  " Broken down into easily includeable segments
-  set statusline=%<%f\                     " Filename
-  set statusline+=%w%h%m%r                 " Options
-  set statusline+=\ [%{&ff}/%Y]            " Filetype
-  set statusline+=\ [%{getcwd()}]          " Current dir
-  set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-endif
+" if has('cmdline_info')
+"     set ruler                   " Show the ruler
+"     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+"     set showcmd                 " Show partial commands in status line and
+"                                 " Selected characters/lines in visual mode
+" endif
 
 set noswapfile 
 
@@ -158,6 +145,5 @@ au FileType go nnoremap <Leader>gc <Plug>(go-callers)
 " configure: https://github.com/vim-airline/vim-airline#user-content-extensible-pipeline
 " =====================================
 let g:airline_theme='monochrome'
-let g:airline_powerline_fonts = 1
-" show buffers (if only one tab)
-"let g:airline#extensions#tabline#enabled = 1
+" required if using https://github.com/bling/vim-airline
+let g:airline_powerline_fonts=1

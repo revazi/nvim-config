@@ -15,6 +15,12 @@ call lib#SourceIfExists("~/.vim/settings/sensible.vim")
 "===============================================================================
 call lib#SourceIfExists("~/.vim/settings/keymappings.vim")
 "===============================================================================
+"
+"===============================================================================
+" Settings
+"===============================================================================
+call lib#SourceIfExists("~/.vim/settings/settings.vim")
+"===============================================================================
 
 "===============================================================================
 " Plugins
@@ -22,6 +28,7 @@ call lib#SourceIfExists("~/.vim/settings/keymappings.vim")
 call lib#SourceIfExists("~/.vim/settings/plugin_loader.vim")
 call plugin_loader#PlugInit()
 "===============================================================================
+
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
