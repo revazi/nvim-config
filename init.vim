@@ -237,8 +237,8 @@ Plug 'Yggdroot/indentLine'
 if executable('node')
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install',
-    \ 'for': ['javascript', 'typescript', 'vue', 'markdown', 'markdown.mdx'] }
+        \ 'do': 'yarn install',
+        \ 'for': ['javascript', 'typescript', 'vue', 'markdown', 'markdown.mdx'] }
 
   autocmd BufWritePre *.md,*.mdx,*.ts,*.tsx,*.js,*.jsx execute ':Prettier'
 endif
@@ -377,18 +377,18 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " -------------------------------------
 
 function! Light()
-    echom "set bg=light"
-    set background=light
-    colorscheme PaperColor
-    set list
+  echom "set bg=light"
+  set background=light
+  colorscheme PaperColor
+  set list
 endfunction
 
 function! Dark()
-    echom "set bg=dark"
-    set background=dark
-    colorscheme PaperColor
-    "darcula fix to hide the indents:
-    set nolist
+  echom "set bg=dark"
+  set background=dark
+  colorscheme PaperColor
+  "darcula fix to hide the indents:
+  set nolist
 endfunction
 
 function! ToggleLightDark()
@@ -513,11 +513,11 @@ nnoremap <silent> <Leader>d :BD<cr>
 " Netrw traversal
 " https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f#file-netrw-txt-L4
 augroup netrw_window_fix
-    autocmd!
-    autocmd filetype netrw call Set_netrw_maps()
+  autocmd!
+  autocmd filetype netrw call Set_netrw_maps()
 augroup END
 function! Set_netrw_maps()
-    noremap <buffer> <C-l> <C-w>l
+  noremap <buffer> <C-l> <C-w>l
 endfunction
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
@@ -553,6 +553,9 @@ inoremap ,, <Esc>
 "nnoremap <C-Space> :NERDTreeToggle<CR>
 "nmap <C-@> <C-Space>
 nnoremap <silent> <C-space> :NERDTreeToggle<CR>
+nnoremap <silent> <C-n><C-f> :NERDTreeToggle<CR>
+
+nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 
 " toggle tagbar
 nnoremap <silent> <leader>tb :TagbarToggle<CR>
@@ -668,30 +671,30 @@ let g:airline_powerline_fonts = 1
 
 let s:hidden_all = 0
 function! ToggleHiddenAll()
-    if s:hidden_all  == 0
-        let s:hidden_all = 1
-        set noshowmode
-        set noruler
-        set laststatus=0
-        set noshowcmd
-	TagbarClose
-	NERDTreeClose
-        set foldcolumn=10
+  if s:hidden_all  == 0
+    let s:hidden_all = 1
+    set noshowmode
+    set noruler
+    set laststatus=0
+    set noshowcmd
+    TagbarClose
+    NERDTreeClose
+    set foldcolumn=10
 
-    else
-	set foldcolumn=0
-        let s:hidden_all = 0
-        set showmode
-        set ruler
-        set laststatus=2 
-        set showcmd
-	NERDTree
-	" NERDTree takes focus, so move focus back to the right
-	" (note: "l" is lowercase L (mapped to moving right)
-	wincmd l
-	TagbarOpen
+  else
+    set foldcolumn=0
+    let s:hidden_all = 0
+    set showmode
+    set ruler
+    set laststatus=2 
+    set showcmd
+    NERDTree
+    " NERDTree takes focus, so move focus back to the right
+    " (note: "l" is lowercase L (mapped to moving right)
+    wincmd l
+    TagbarOpen
 
-    endif
+  endif
 endfunction
 
 nnoremap <silent> <leader>h :call ToggleHiddenAll()<CR>
@@ -720,22 +723,22 @@ nnoremap <silent> <leader>h :call ToggleHiddenAll()<CR>
 let g:rooter_manual_only = 1
 let g:rooter_silent_chdir = 1
 let g:rooter_patterns = [
-    \ 'manage.py', 
-    \ '.venv/', 
-    \ '.env/',
-    \ '.env3/',
-    \ '.venv3/',
-    \ 'Rakefile',
-    \ '.git/',
-    \ 'gulpfile.js',
-    \ 'bower.json',
-    \ 'Gruntfile.js',
-    \ 'Gemfile',
-    \ 'Procfile',
-    \ '.svn',
-    \ '.hg',
-    \ 'Pipfile',
-    \ ]
+      \ 'manage.py', 
+      \ '.venv/', 
+      \ '.env/',
+      \ '.env3/',
+      \ '.venv3/',
+      \ 'Rakefile',
+      \ '.git/',
+      \ 'gulpfile.js',
+      \ 'bower.json',
+      \ 'Gruntfile.js',
+      \ 'Gemfile',
+      \ 'Procfile',
+      \ '.svn',
+      \ '.hg',
+      \ 'Pipfile',
+      \ ]
 
 " An action can be a reference to a function that processes selected lines
 function! s:build_quickfix_list(lines)
@@ -746,10 +749,10 @@ endfunction
 
 " This is the default extra key bindings
 let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+      \ 'ctrl-q': function('s:build_quickfix_list'),
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit' }
 
 if v:version >= 801  " Floating window on 8.1+ https://github.com/junegunn/fzf/blob/master/README-VIM.md
   let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
@@ -757,19 +760,19 @@ endif
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -792,7 +795,7 @@ endfunction
 " command! FZFR call s:find_root()
 
 command! -bang FZFR
-  \ call fzf#run(fzf#wrap('my-stuff', {'dir': FindRootDirectory()}, <bang>0))
+      \ call fzf#run(fzf#wrap('my-stuff', {'dir': FindRootDirectory()}, <bang>0))
 
 
 nmap <space> :<C-u>FZFR<CR>
@@ -848,8 +851,8 @@ function! s:ag_handler(lines)
   if len(a:lines) < 2 | return | endif
 
   let cmd = get({'ctrl-x': 'split',
-               \ 'ctrl-v': 'vertical split',
-               \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
+        \ 'ctrl-v': 'vertical split',
+        \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
   let list = map(a:lines[1:], 's:ag_to_qf(v:val)')
 
   let first = list[0]
@@ -865,24 +868,24 @@ function! s:ag_handler(lines)
 endfunction
 
 command! -nargs=* FZFAgRoot call fzf#run({
-\ 'source':  printf('ag --nogroup --column --color "%s" %s',
-\                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\'), FindRootDirectory()),
-\ 'sink*':    function('<sid>ag_handler'),
-\ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
-\            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
-\            '--color hl:68,hl+:110',
-\ 'down':    '50%'
-\ })
+      \ 'source':  printf('ag --nogroup --column --color "%s" %s',
+      \                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\'), FindRootDirectory()),
+      \ 'sink*':    function('<sid>ag_handler'),
+      \ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
+      \            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
+      \            '--color hl:68,hl+:110',
+      \ 'down':    '50%'
+      \ })
 
 command! -nargs=* FZFAg call fzf#run({
-\ 'source':  printf('ag --nogroup --column --color "%s"',
-\                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
-\ 'sink*':    function('<sid>ag_handler'),
-\ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
-\            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
-\            '--color hl:68,hl+:110',
-\ 'down':    '50%'
-\ })
+      \ 'source':  printf('ag --nogroup --column --color "%s"',
+      \                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
+      \ 'sink*':    function('<sid>ag_handler'),
+      \ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
+      \            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
+      \            '--color hl:68,hl+:110',
+      \ 'down':    '50%'
+      \ })
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
