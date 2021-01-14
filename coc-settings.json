@@ -40,6 +40,7 @@
   "coc.preferences.jumpCommand": "vsplit",
   "coc.preferences.rootPatterns": [".git", ".hg", "pyproject.toml", "setup.py", ".venv", ".env", "package.json"],
   "diagnostic.messageTarget": "echo",
+  "coc.preferences.hoverTarget": "preview",
   "coc.source.tmuxcomplete.filetypes": [],
   "coc.source.buffer.enable": false,
   "coc.source.around.enable": false,

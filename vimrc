@@ -30,15 +30,6 @@ call plugin_loader#PlugInit()
 "===============================================================================
 
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-
 " Use Ag (the silver searcher) instack of Ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
@@ -67,14 +58,14 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 function! Light()
   echom "set bg=light"
   set background=light
-  colorscheme PaperColor
+  colorscheme gruvbox
   set list
 endfunction
 
 function! Dark()
   echom "set bg=dark"
   set background=dark
-  colorscheme PaperColor
+  colorscheme gruvbox
   "darcula fix to hide the indents:
   set nolist
 endfunction

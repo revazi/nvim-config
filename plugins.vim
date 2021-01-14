@@ -19,6 +19,8 @@ Plug 'pbrisbin/vim-colors-off'
 Plug 'muellan/am-colors'
 Plug 'blueshirts/darcula'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
+Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 
 
 Plug 'editorconfig/editorconfig-vim'
