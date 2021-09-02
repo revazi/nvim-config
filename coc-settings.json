@@ -1,16 +1,5 @@
 {
   "languageserver": {
-      "elmLS": {
-      "command": "elm-language-server",
-      "filetypes": ["elm"],
-      "rootPatterns": ["elm.json"],
-      "initializationOptions": {
-        "elmPath": "elm", // optional
-        "elmFormatPath": "elm-format", // optional
-        "elmTestPath": "elm-test", // optional
-        "elmAnalyseTrigger": "change" // optional
-      }
-    },
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
@@ -27,32 +16,25 @@
       }
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "python"
-  ],
-  "tsserver.formatOnType": true,
-  "coc.preferences.formatOnType": true,
   "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.jumpCommand": "vsplit",
   "coc.preferences.rootPatterns": [".git", ".hg", "pyproject.toml", "setup.py", ".venv", ".env", "package.json"],
   "diagnostic.messageTarget": "echo",
-  "coc.preferences.hoverTarget": "preview",
+  "signature.target": "echo",
+  "suggest.floatEnable": false,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "markdown"],
+  "prettier.requireConfig":  true,
+  "prettier.disableSuccessMessage": true,
   "coc.source.tmuxcomplete.filetypes": [],
   "coc.source.buffer.enable": false,
   "coc.source.around.enable": false,
-  "tsserver.enableJavascript": true,
+  "tsserver.enableJavascript": false,
   "typescript.validate.enable": false,
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
-  "python.venvFolders": ["envs", ".pyenv", ".env", ".venv", ".venv3", ".direnv"],
-  "python.venvPath": "~/.local/share/virtualenvs",
   "npm.binPath": "yarn",
-  // eslint settings
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
+  "diagnostic.level": "information",
+  "prettier.disableLanguages": ["json", "golang", "python"]
 }
+

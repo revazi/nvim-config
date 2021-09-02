@@ -21,6 +21,8 @@ Plug 'blueshirts/darcula'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+Plug 'artanikin/vim-synthwave84'
+Plug 'wojciechkepka/vim-github-dark'
 
 
 Plug 'editorconfig/editorconfig-vim'
@@ -35,10 +37,31 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+Plug 'APZelos/blamer.nvim'
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+let g:blamer_prefix = ' 📍 '
+let g:blamer_show_in_visual_modes = 0
+let g:blamer_show_in_insert_modes = 0
+let g:blamer_template = '<committer> · <summary> · <committer-time>'
+
 
 if executable('ag')
   Plug 'rking/ag.vim'
 endif
+
+"" CocInstall coc-json coc-html coc-css coc-python coc-tsserver coc-rls coc-vetur
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-pyright',
+  \ 'coc-tsserver',
+  \ 'coc-rls',
+  \ 'coc-vetur', 
+  \ 'coc-prettier',
+  \ 'coc-pairs'
+  \ ]
 
 function! OnLoadCoc()
   " use <tab> for trigger completion and navigate next complete item
@@ -72,11 +95,21 @@ function! OnLoadCoc()
   nmap <leader>rn <Plug>(coc-rename)
 endfunction
 
+autocmd FileType python let b:coc_root_patterns =
+        \ ['.git', '.env', 'pyproject.toml', 'Pipfile']
+autocmd FileType javascript,typescript,typescript.tsx let b:coc_root_patterns =
+        \ ['.git', 'package-lock.json', 'yarn.lock']
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call OnLoadCoc()
 
 " For coc-settings.json json
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" from neoclide coc-css, keyword hint for completions
+autocmd FileType scss setl iskeyword+=@-@
+
+Plug 'vim-python/python-syntax'
 
 " TagBar
 Plug 'majutsushi/tagbar'
@@ -92,7 +125,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Install fonts before running PlugInstall
 " OSX: brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font
 " OR see full instructions here for other platforms: https://github.com/ryanoasis/nerd-fonts#font-installation
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 
 " Save/restore session support
 " https://github.com/tpope/vim-obsession
@@ -124,11 +157,20 @@ Plug 'Yggdroot/indentLine'
 if executable('node')
   " post install (yarn install | npm install) then load plugin only for editing supported files
   Plug 'prettier/vim-prettier', {
-        \ 'do': 'yarn install',
-        \ 'for': ['javascript', 'typescript', 'vue', 'markdown', 'markdown.mdx'] }
+    \ 'do': 'yarn install',
+    \ 'for': ['javascript', 'typescript', 'typescriptreact', 'vue', 'markdown', 'markdown.mdx'] }
 
   autocmd BufWritePre *.md,*.mdx,*.ts,*.tsx,*.js,*.jsx execute ':Prettier'
 endif
+
+if executable('black')
+  autocmd BufWritePost *.py silent !black % --quiet
+endif
+
+if executable('isort')
+  autocmd BufWritePost *.py silent !isort % --quiet
+endif
+
 
 Plug 'jparise/vim-graphql'
 Plug 'cakebaker/scss-syntax.vim'
@@ -141,5 +183,6 @@ if executable('node')
   Plug 'jxnblk/vim-mdx-js'
   Plug 'pangloss/vim-javascript'
 endif
+
 
 

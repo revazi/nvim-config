@@ -146,4 +146,5 @@ au FileType go nnoremap <Leader>gc <Plug>(go-callers)
 " =====================================
 let g:airline_theme='monochrome'
 " required if using https://github.com/bling/vim-airline
-let g:airline_powerline_fonts=1
+" let g:airline_powerline_fonts=1
+

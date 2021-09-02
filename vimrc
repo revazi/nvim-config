@@ -25,7 +25,7 @@ call lib#SourceIfExists("~/.vim/settings/settings.vim")
 "===============================================================================
 " Plugins
 "===============================================================================
-call lib#SourceIfExists("~/.vim/settings/plugin_loader.vim")
+call lib#SourceIfExists("~/.vim/plugin_loader.vim")
 call plugin_loader#PlugInit()
 "===============================================================================
 
@@ -54,6 +54,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " torte
 " zellner
 " -------------------------------------
+"
 
 function! Light()
   echom "set bg=light"
@@ -65,7 +66,8 @@ endfunction
 function! Dark()
   echom "set bg=dark"
   set background=dark
-  colorscheme gruvbox
+  colorscheme gruvbox-material
+  " colorscheme ghdark
   "darcula fix to hide the indents:
   set nolist
 endfunction
@@ -276,3 +278,4 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 " Init
 " =====================================
 silent call Dark()
+
